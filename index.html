@@ -228,14 +228,11 @@ h2{
   background:var(--surface);
   border-radius:8px;overflow:hidden;
 }
-.photo-frame::after{
-  content:piper-kilpatrick-md.jpg
-  white-space:pre;
-  position:absolute;inset:0;
-  display:flex;align-items:center;justify-content:center;
-  font-family:'JetBrains Mono',monospace;
-  font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;
-  color:var(--muted);text-align:center;line-height:2;
+.photo-frame img{
+   width:100%;
+   height:100%;
+   object-fit:cover;
+   display:block;
 }
 .photo-accent{
   position:absolute;bottom:-1.5rem;right:-1.5rem;
@@ -641,7 +638,9 @@ h1{animation:fadeUp 0.7s 0.15s ease both;}
   <div class="inner">
     <div class="about-grid">
       <div class="photo-wrap">
-        <div class="photo-frame"></div>
+        <div class="photo-frame">
+  <img src="piper-kilpatrick-md.jpg" alt="Dr. Piper Kilpatrick, MD">
+</div>
         <div class="photo-accent">MD<br>CAQSM</div>
       </div>
       <div class="about-body">
