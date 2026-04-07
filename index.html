@@ -21,7 +21,7 @@
   --lime-dim: #333333;
   --cream: #111111;
   --cream-dim: #444444;
-  --muted: #6b6b60;
+  --muted: #888880;
   --border: rgba(26,26,26,0.15);
   --border2: rgba(26,26,26,0.1);
   --coral: #555550;
@@ -70,13 +70,10 @@ nav{
 
 /* ── HERO ── */
 .hero{
-   min-height:85vh;
-   display:grid;
-   grid-template-columns: 1fr 1.2fr;
-   gap:4rem;
-   align-items:center;
-   padding:6rem 3.5rem;
-   position:relative;overflow:hidden;
+  min-height:auto;
+  display:flex;align-items:center;
+  padding:6rem 3.5rem 3rem;
+  position:relative;overflow:hidden;
 }
 .hero-bg-text{
   position:absolute;
@@ -87,17 +84,9 @@ nav{
   color:rgba(26,26,26,0.05);
   line-height:1;pointer-events:none;
   white-space:nowrap;letter-spacing:-0.03em;
- .hero-left{
-   order:-1;
-}
-.hero-right{
-   display:flex;
-   flex-direction:column;
-   gap:2rem;
-}
   user-select:none;
 }
-.hero-inner{display:contents;} 
+.hero-inner{max-width:1160px;margin:0 auto;width:100%;}
 .hero-tag{
   display:inline-flex;align-items:center;gap:0.6rem;
   background:rgba(26,26,26,0.06);border:1px solid var(--border);
@@ -124,10 +113,10 @@ nav{
 }
 h1{
   font-family:'Playfair Display',serif;
-  font-size:clamp(3.8rem,8.5vw,7rem);
-  font-weight:900;line-height:0.92;
+  font-size:clamp(2.4rem,5vw,4rem);
+  font-weight:900;line-height:1;
   letter-spacing:-0.02em;color:var(--cream);
-  margin-bottom:2rem;
+  margin-bottom:1.5rem;
 }
 h1 em{
   color:var(--lime);font-style:normal;
@@ -154,8 +143,8 @@ h1 em{
 }
 .btn-ghost:hover{border-color:rgba(26,26,26,0.5);color:var(--lime);}
 .hero-stats{
-  display:flex;gap:3rem;margin-top:5rem;
-  padding-top:3rem;border-top:1px solid var(--border2);
+  display:flex;gap:3rem;margin-top:2.5rem;
+  padding-top:2rem;border-top:1px solid var(--border2);
   flex-wrap:wrap;
 }
 .hstat-num{
@@ -229,21 +218,34 @@ h2{
 }
 
 /* ── ABOUT ── */
-.about-grid{
-  display:grid;grid-template-columns:5fr 6fr;
-  gap:6rem;align-items:start;margin-top:3rem;
+.about-centered-photo{display:flex;justify-content:center;}
+
+/* hero two-column split */
+.hero-split{
+  display:grid;
+  grid-template-columns:280px 1fr;
+  gap:4rem;
+  align-items:start;
+  margin-bottom:1rem;
+}
+.hero-photo-col{
+  position:sticky;top:6rem;
 }
 .photo-frame{
   position:relative;
+  width:100%;
   aspect-ratio:3/4;
   background:var(--surface);
   border-radius:8px;overflow:hidden;
 }
-.photo-frame img{
-   width:100%;
-   height:100%;
-   object-fit:cover;
-   display:block;
+.photo-frame::after{
+  content:'Photo of\ADr. Kilpatrick';
+  white-space:pre;
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--muted);text-align:center;line-height:2;
 }
 .photo-accent{
   position:absolute;bottom:-1.5rem;right:-1.5rem;
@@ -484,17 +486,15 @@ h1{animation:fadeUp 0.7s 0.15s ease both;}
 
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
-   .hero{
-      grid-template-columns:1fr;
-      padding:5rem 1.5rem;
-      min-height:auto;
-   }
-   .hero-left{order:0;}
-}
-  h1{font-size:clamp(3rem,10vw,5rem);}
+  nav{padding:1rem 1.5rem;}
+  .nav-links{display:none;}
+  section{padding:5rem 1.5rem;}
+  .hero{padding:5rem 1.5rem 3rem;}
+  h1{font-size:clamp(2rem,8vw,3.5rem);}
+  .hero-split{grid-template-columns:1fr;gap:2rem;}
+  .hero-photo-col{position:static;}
+  .photo-frame{max-width:220px;}
   .services-grid{grid-template-columns:1fr 1fr;}
-  .about-grid{grid-template-columns:1fr;gap:3rem;}
-  .photo-wrap{max-width:340px;}
   .res-grid{grid-template-columns:1fr;}
   .gen-body{grid-template-columns:1fr;}
   .gen-sidebar{border-right:none;border-bottom:1px solid var(--border2);}
@@ -564,56 +564,91 @@ h1{animation:fadeUp 0.7s 0.15s ease both;}
     <li><a href="#resources">Resources</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="#booking" class="nav-cta">Book a Visit</a>
+  <a href="tel:+19192382000" class="nav-cta">Book a Visit</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg-text">MOVE</div>
- <!-- HERO -->
-<section class="hero">
-   <div class="hero-left">
-      <div class="photo-wrap">
-         <div class="photo-frame">
-            <img src="piper-kilpatrick-md.jpg" alt="Dr. Piper Kilpatrick, MD">
-         </div>
-         <div class="photo-accent">MD<br>CAQSM</div>
-      </div>
-   </div>
+  <div class="hero-inner">
 
-   <div class="hero-right">
-      <div class="hero-tag">
-         <div class="hero-tag-dot"></div>
-         <span>CMO · NC Courage · NWSL &nbsp;|&nbsp; Now accepting new patients</span>
+    <!-- TOP: tag + two-column name/photo -->
+    <div class="hero-tag">
+      <div class="hero-tag-dot"></div>
+      <span>CMO · NC Courage · NWSL &nbsp;|&nbsp; Now accepting new patients</span>
+    </div>
+
+    <div class="hero-split">
+      <!-- LEFT: photo -->
+      <div class="hero-photo-col">
+        <div class="photo-wrap">
+          <div class="photo-frame"></div>
+          <div class="photo-accent">MD<br>CAQSM</div>
+        </div>
       </div>
-      <div class="hero-name">Piper Kilpatrick, MD</div>
-      <h1>Elite Sports Medicine.<br>For <em>Every</em> Athlete.</h1>
-      <p class="hero-sub">
-         Chief Medical Officer of the NC Courage (NWSL). Concussion specialist. Primary care sports medicine physician bringing professional-level care to athletes at every stage.
-      </p>
-      <div class="hero-actions">
-         <a href="#booking" class="btn-lime">Schedule an Appointment</a>
-         <a href="#resources" class="btn-ghost">Browse Resources</a>
+
+      <!-- RIGHT: name, headline, bio, credentials -->
+      <div class="hero-bio-col">
+        <div class="hero-name">Piper Kilpatrick, MD</div>
+        <h1>Elite Sports Medicine.<br>For <em>Every</em> Athlete.</h1>
+        <p class="hero-sub">
+          Chief Medical Officer of the NC Courage (NWSL). Concussion specialist. Primary care sports medicine physician bringing professional-level care to athletes at every stage.
+        </p>
+        <div class="hero-actions">
+          <a href="tel:+19192382000" class="btn-lime">Call to Schedule</a>
+          <a href="#resources" class="btn-ghost">Browse Resources</a>
+        </div>
+
+        <div class="creds" style="margin-top:2rem;">
+          <div class="cred">
+            <div class="cred-bullet"></div>
+            <div class="cred-content"><strong>Chief Medical Officer:</strong> NC Courage — National Women's Soccer League (NWSL)</div>
+          </div>
+          <div class="cred">
+            <div class="cred-bullet"></div>
+            <div class="cred-content"><strong>Specialty:</strong> Sport Concussion Management — evaluation, baseline testing, return-to-play, policy development</div>
+          </div>
+          <div class="cred">
+            <div class="cred-bullet"></div>
+            <div class="cred-content"><strong>Advisory Boards:</strong> [Medical Advisory Board 1] · [Medical Advisory Board 2] · [Organization 3]</div>
+          </div>
+          <div class="cred">
+            <div class="cred-bullet"></div>
+            <div class="cred-content"><strong>Fellowship:</strong> [Sports Medicine Fellowship — Hospital / University, Year]</div>
+          </div>
+          <div class="cred">
+            <div class="cred-bullet"></div>
+            <div class="cred-content"><strong>Board Certified:</strong> Family Medicine · Certificate of Added Qualification in Sports Medicine (CAQSM)</div>
+          </div>
+          <div class="cred">
+            <div class="cred-bullet"></div>
+            <div class="cred-content"><strong>Member:</strong> American Medical Society for Sports Medicine (AMSSM) · AAFP</div>
+          </div>
+        </div>
       </div>
-      <div class="hero-stats">
-         <div>
-            <div class="hstat-num">NWSL</div>
-            <div class="hstat-label">CMO · NC Courage</div>
-         </div>
-         <div>
-            <div class="hstat-num">Board</div>
-            <div class="hstat-label">Certified — sports medicine</div>
-         </div>
-         <div>
-            <div class="hstat-num">Concussion</div>
-            <div class="hstat-label">Specialist & educator</div>
-         </div>
-         <div>
-            <div class="hstat-num">Advisory</div>
-            <div class="hstat-label">Multiple medical boards</div>
-         </div>
+    </div>
+
+    <!-- BOTTOM: stats bar -->
+    <div class="hero-stats">
+      <div>
+        <div class="hstat-num">NWSL</div>
+        <div class="hstat-label">CMO · NC Courage</div>
       </div>
-   </div>
+      <div>
+        <div class="hstat-num">Board</div>
+        <div class="hstat-label">Certified — sports medicine</div>
+      </div>
+      <div>
+        <div class="hstat-num">Concussion</div>
+        <div class="hstat-label">Specialist & educator</div>
+      </div>
+      <div>
+        <div class="hstat-num">Advisory</div>
+        <div class="hstat-label">Multiple medical boards</div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <!-- SERVICES -->
@@ -811,32 +846,32 @@ h1{animation:fadeUp 0.7s 0.15s ease both;}
   <div class="inner booking-inner">
     <div class="eyebrow" style="justify-content:center;">Schedule</div>
     <h2>Let's Get You Back Out There</h2>
-    <p class="sub">Appointments available for new patients. Most major insurance plans accepted.</p>
+    <p class="sub">Same-week appointments available for new patients. Most major insurance plans accepted.</p>
     <div class="appt-grid">
-      <div class="appt-card">
+      <a href="tel:+19192382000" class="appt-card" style="text-decoration:none;display:block;">
         <div class="appt-icon">🏥</div>
         <h4>New Patient Visit</h4>
-        <p>Comprehensive evaluation — your history, your goals, and a plan built around you.</p>
-        <div class="appt-time">In-person</div>
-      </div>
-      <div class="appt-card">
+        <p>Comprehensive 60-minute evaluation — your history, your goals, and a plan built around you.</p>
+        <div class="appt-time">60 min · In-person · Call to schedule</div>
+      </a>
+      <a href="tel:+19192382000" class="appt-card" style="text-decoration:none;display:block;">
         <div class="appt-icon">🔄</div>
         <h4>Follow-Up Care</h4>
         <p>Established patients — check-ins, procedure follow-up, progress review, and return-to-sport clearance.</p>
-        <div class="appt-time">In-person</div>
-      </div>
-      <div class="appt-card">
+        <div class="appt-time">30 min · In-person · Call to schedule</div>
+      </a>
+      <a href="tel:+19192382000" class="appt-card" style="text-decoration:none;display:block;">
         <div class="appt-icon">💻</div>
         <h4>Telehealth Visit</h4>
         <p>Virtual care for eligible visits — review of imaging, medication management, and follow-up consultations.</p>
-        <div class="appt-time">Virtual</div>
-      </div>
+        <div class="appt-time">30 min · Virtual · Call to schedule</div>
+      </a>
     </div>
-    <a href="tel:+19192382000" class="big-cta">Book Your Appointment</a>
+    <a href="tel:+19192382000" class="big-cta">Call to Book &nbsp;+1 (919) 238-2000</a>
     <div class="contact-strip">
       Mon–Fri 8am–5pm &nbsp;·&nbsp;
       <a href="tel:+19192382000">(919) 238-2000</a> &nbsp;·&nbsp;
-      <a href="mailto:Pkilpatrick@novanthealth.org">Email Dr. Kilpatrick NOT A PATIENT PORTAL</a>
+      <a href="mailto:Pkilpatrick@novanthealth.org">Pkilpatrick@novanthealth.org</a>
     </div>
   </div>
 </section>
@@ -846,7 +881,7 @@ h1{animation:fadeUp 0.7s 0.15s ease both;}
   <div class="footer-inner">
     <div class="f-brand">
       <a href="#" class="logo">Dr. <span>Kilpatrick</span></a>
-      <p>Primary Care Sports Medicine — helping athletes move better, recover faster, and perform longer. Serving the greater Triangle Area.</p>
+      <p>Primary Care Sports Medicine — helping athletes move better, recover faster, and perform longer. Serving [Your City, State].</p>
     </div>
     <div class="f-col">
       <h5>Quick Links</h5>
@@ -858,17 +893,17 @@ h1{animation:fadeUp 0.7s 0.15s ease both;}
     </div>
     <div class="f-col">
       <h5>Connect</h5>
-      <a href="#">Instagram</a>
-      <a href="#">LinkedIn</a>
-      <a href="#">X / Twitter</a>
-      <a href="mailto:Pkilpatrick@novanthealth.org">Email</a>
+      <a href="https://www.instagram.com/YOUR_INSTAGRAM_HANDLE" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/in/YOUR_LINKEDIN_HANDLE" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.x.com/YOUR_X_HANDLE" target="_blank" rel="noopener">X / Twitter</a>
+      <a href="mailto:Pkilpatrick@novanthealth.org">Email Dr. Kilpatrick</a>
     </div>
     <div class="f-col">
       <h5>Practice</h5>
-      <a href="#">Carolina Family Practice & Sports Medicine</a>
-      <a href="#">1070 S. Main St. Suite 110</a>
-      <a href="#">Holly Springs, NC</a>
-      <a href="#">All major Insurances Accepted</a>
+      <a href="#">[Practice Name]</a>
+      <a href="#">[Street Address]</a>
+      <a href="#">[City, State ZIP]</a>
+      <a href="#">Insurance Info</a>
     </div>
   </div>
   <div class="footer-bottom">
