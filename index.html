@@ -70,10 +70,13 @@ nav{
 
 /* ── HERO ── */
 .hero{
-  min-height:100vh;
-  display:flex;align-items:center;
-  padding:9rem 3.5rem 5rem;
-  position:relative;overflow:hidden;
+   min-height:85vh;
+   display:grid;
+   grid-template-columns: 1fr 1.2fr;
+   gap:4rem;
+   align-items:center;
+   padding:6rem 3.5rem;
+   position:relative;overflow:hidden;
 }
 .hero-bg-text{
   position:absolute;
@@ -84,9 +87,17 @@ nav{
   color:rgba(26,26,26,0.05);
   line-height:1;pointer-events:none;
   white-space:nowrap;letter-spacing:-0.03em;
+ .hero-left{
+   order:-1;
+}
+.hero-right{
+   display:flex;
+   flex-direction:column;
+   gap:2rem;
+}
   user-select:none;
 }
-.hero-inner{max-width:1160px;margin:0 auto;width:100%;}
+.hero-inner{display:contents;} 
 .hero-tag{
   display:inline-flex;align-items:center;gap:0.6rem;
   background:rgba(26,26,26,0.06);border:1px solid var(--border);
@@ -473,10 +484,13 @@ h1{animation:fadeUp 0.7s 0.15s ease both;}
 
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
-  nav{padding:1rem 1.5rem;}
-  .nav-links{display:none;}
-  section{padding:5rem 1.5rem;}
-  .hero{padding:7rem 1.5rem 4rem;}
+   .hero{
+      grid-template-columns:1fr;
+      padding:5rem 1.5rem;
+      min-height:auto;
+   }
+   .hero-left{order:0;}
+}
   h1{font-size:clamp(3rem,10vw,5rem);}
   .services-grid{grid-template-columns:1fr 1fr;}
   .about-grid{grid-template-columns:1fr;gap:3rem;}
@@ -556,39 +570,50 @@ h1{animation:fadeUp 0.7s 0.15s ease both;}
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg-text">MOVE</div>
-  <div class="hero-inner">
-    <div class="hero-tag">
-      <div class="hero-tag-dot"></div>
-      <span>CMO · NC Courage · NWSL &nbsp;|&nbsp; Now accepting new patients</span>
-    </div>
-    <div class="hero-name">Piper Kilpatrick, MD</div>
-    <h1>Elite Sports Medicine.<br>For <em>Every</em> Athlete.</h1>
-    <p class="hero-sub">
-      Chief Medical Officer of the NC Courage (NWSL). Concussion specialist. Primary care sports medicine physician bringing professional-level care to athletes at every stage.
-    </p>
-    <div class="hero-actions">
-      <a href="#booking" class="btn-lime">Schedule an Appointment</a>
-      <a href="#resources" class="btn-ghost">Browse Resources</a>
-    </div>
-    <div class="hero-stats">
-      <div>
-        <div class="hstat-num">NWSL</div>
-        <div class="hstat-label">CMO · NC Courage</div>
+ <!-- HERO -->
+<section class="hero">
+   <div class="hero-left">
+      <div class="photo-wrap">
+         <div class="photo-frame">
+            <img src="piper-kilpatrick-md.jpg" alt="Dr. Piper Kilpatrick, MD">
+         </div>
+         <div class="photo-accent">MD<br>CAQSM</div>
       </div>
-      <div>
-        <div class="hstat-num">Board</div>
-        <div class="hstat-label">Certified — sports medicine</div>
+   </div>
+
+   <div class="hero-right">
+      <div class="hero-tag">
+         <div class="hero-tag-dot"></div>
+         <span>CMO · NC Courage · NWSL &nbsp;|&nbsp; Now accepting new patients</span>
       </div>
-      <div>
-        <div class="hstat-num">Concussion</div>
-        <div class="hstat-label">Specialist & educator</div>
+      <div class="hero-name">Piper Kilpatrick, MD</div>
+      <h1>Elite Sports Medicine.<br>For <em>Every</em> Athlete.</h1>
+      <p class="hero-sub">
+         Chief Medical Officer of the NC Courage (NWSL). Concussion specialist. Primary care sports medicine physician bringing professional-level care to athletes at every stage.
+      </p>
+      <div class="hero-actions">
+         <a href="#booking" class="btn-lime">Schedule an Appointment</a>
+         <a href="#resources" class="btn-ghost">Browse Resources</a>
       </div>
-      <div>
-        <div class="hstat-num">Advisory</div>
-        <div class="hstat-label">Multiple medical boards</div>
+      <div class="hero-stats">
+         <div>
+            <div class="hstat-num">NWSL</div>
+            <div class="hstat-label">CMO · NC Courage</div>
+         </div>
+         <div>
+            <div class="hstat-num">Board</div>
+            <div class="hstat-label">Certified — sports medicine</div>
+         </div>
+         <div>
+            <div class="hstat-num">Concussion</div>
+            <div class="hstat-label">Specialist & educator</div>
+         </div>
+         <div>
+            <div class="hstat-num">Advisory</div>
+            <div class="hstat-label">Multiple medical boards</div>
+         </div>
       </div>
-    </div>
-  </div>
+   </div>
 </section>
 
 <!-- SERVICES -->
@@ -628,63 +653,6 @@ h1{animation:fadeUp 0.7s 0.15s ease both;}
         <div class="svc-num">06</div>
         <h3>Recovery & Overtraining</h3>
         <p>Sleep optimization, fatigue management, and overtraining syndrome evaluation — because sustainable performance starts with knowing when to rest.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="inner">
-    <div class="about-grid">
-      <div class="photo-wrap">
-        <div class="photo-frame">
-  <img src="piper-kilpatrick-md.jpg" alt="Dr. Piper Kilpatrick, MD">
-</div>
-        <div class="photo-accent">MD<br>CAQSM</div>
-      </div>
-      <div class="about-body">
-        <div class="eyebrow">About</div>
-        <h2>Piper Kilpatrick, MD</h2>
-        <p>
-          <strong>As Chief Medical Officer of the NC Courage (NWSL), Dr. Kilpatrick brings professional sports medicine to the clinic.</strong> He oversees the comprehensive medical care of one of women's soccer's elite clubs — managing everything from acute sideline injuries to long-term athlete health strategy.
-        </p>
-        <p>
-          His clinical specialty is sport concussion — an area where he has developed deep expertise at the collegiate, professional, and youth levels. He combines evidence-based evaluation protocols with a nuanced understanding of the pressures athletes face when navigating return-to-play decisions.
-        </p>
-        <p>
-          Beyond his clinical and team physician work, Dr. Kilpatrick serves on multiple medical advisory boards and maintains an active consulting practice — advising organizations on sports medicine protocols, concussion policy, and athlete health systems. Whether you're a high school athlete, a weekend competitor, or a professional — you'll receive the same standard of care he brings to the pitch.
-        </p>
-        <div class="creds">
-          <div class="cred">
-            <div class="cred-bullet"></div>
-            <div class="cred-content"><strong>Chief Medical Officer:</strong>CMO for NC Courage — National Women's Soccer League (NWSL)</div>
-          </div>
-          <div class="cred">
-            <div class="cred-bullet"></div>
-            <div class="cred-content"><strong>Specialty:</strong> Sport Concussion Management — evaluation, baseline testing, return-to-play, policy development</div>
-          </div>
-          <div class="cred">
-            <div class="cred-bullet"></div>
-            <div class="cred-content"><strong>Advisory Boards:</strong> Myehealth</div>
-          </div>
-          <div class="cred">
-            <div class="cred-bullet"></div>
-            <div class="cred-content"><strong>Consulting:</strong> AI use in Sports medicine, concussion policy, athlete health systems for sports organizations</div>
-          </div>
-          <div class="cred">
-            <div class="cred-bullet"></div>
-            <div class="cred-content"><strong>Fellowship:</strong>University Pittsburgh Medical Center</div>
-          </div>
-          <div class="cred">
-            <div class="cred-bullet"></div>
-            <div class="cred-content"><strong>Board Certified:</strong> Family Medicine · Certificate of Added Qualification in Sports Medicine (CAQSM)</div>
-          </div>
-          <div class="cred">
-            <div class="cred-bullet"></div>
-            <div class="cred-content"><strong>Member:</strong> American Medical Society for Sports Medicine (AMSSM) · AAFP</div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
