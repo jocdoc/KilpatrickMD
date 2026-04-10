@@ -312,83 +312,6 @@ h2{
 .res-link:hover{gap:0.7rem;}
 .res-link::after{content:'→';}
 
-/* ── CONTENT GEN ── */
-.gen-section{background:var(--ink);}
-.gen-box{
-  background:var(--ink2);border:1px solid var(--border2);
-  border-radius:12px;overflow:hidden;margin-top:3.5rem;
-}
-.gen-titlebar{
-  padding:1rem 1.5rem;border-bottom:1px solid var(--border2);
-  display:flex;align-items:center;gap:0.6rem;
-  background:rgba(0,0,0,0.04);
-}
-.dot-r{width:10px;height:10px;border-radius:50%;background:#ff5f56;}
-.dot-y{width:10px;height:10px;border-radius:50%;background:#febc2e;}
-.dot-g{width:10px;height:10px;border-radius:50%;background:#28c840;}
-.gen-titlebar-label{
-  font-family:'JetBrains Mono',monospace;font-size:0.72rem;
-  letter-spacing:0.12em;color:var(--muted);margin-left:0.4rem;
-}
-.gen-body{
-  display:grid;grid-template-columns:240px 1fr;
-  min-height:400px;
-}
-.gen-sidebar{
-  border-right:1px solid var(--border2);padding:1.5rem;
-}
-.gen-sidebar-label{
-  font-family:'JetBrains Mono',monospace;font-size:0.65rem;
-  letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);
-  margin-bottom:1rem;
-}
-.topic-list{display:flex;flex-direction:column;gap:0.4rem;}
-.topic-pill{
-  background:transparent;border:1px solid var(--border2);
-  color:var(--muted);padding:0.55rem 0.9rem;border-radius:6px;
-  font-size:0.8rem;cursor:pointer;
-  font-family:'Outfit',sans-serif;transition:all 0.2s;
-  text-align:left;
-}
-.topic-pill:hover{border-color:rgba(26,37,64,0.4);color:var(--cream);}
-.topic-pill.on{background:rgba(26,37,64,0.08);border-color:var(--lime);color:var(--lime);}
-.gen-main{padding:1.5rem;display:flex;flex-direction:column;gap:1rem;}
-.plat-row{display:flex;gap:0.5rem;}
-.plat-pill{
-  background:transparent;border:1px solid var(--border2);
-  color:var(--muted);padding:0.4rem 1rem;border-radius:100px;
-  font-size:0.75rem;cursor:pointer;
-  font-family:'Outfit',sans-serif;transition:all 0.2s;font-weight:500;
-}
-.plat-pill:hover{border-color:rgba(26,37,64,0.4);color:var(--cream);}
-.plat-pill.on{background:rgba(26,37,64,0.1);border-color:var(--lime);color:var(--lime);}
-.gen-output{
-  flex:1;background:var(--ink);border:1px solid var(--border2);
-  border-radius:8px;padding:1.25rem;
-  font-size:0.88rem;color:var(--cream-dim);line-height:1.8;
-  white-space:pre-wrap;min-height:200px;
-  font-family:'Outfit',sans-serif;
-}
-.gen-controls{display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;}
-.gen-btn{
-  background:var(--lime);color:#eef0f4;border:none;
-  padding:0.7rem 1.8rem;border-radius:100px;
-  font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;
-  font-weight:600;cursor:pointer;
-  font-family:'Outfit',sans-serif;transition:all 0.2s;
-}
-.gen-btn:hover{background:var(--lime-dim);}
-.gen-btn:disabled{opacity:0.5;cursor:not-allowed;}
-.copy-btn{
-  background:transparent;border:1px solid var(--border2);color:var(--muted);
-  padding:0.7rem 1.4rem;border-radius:100px;
-  font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;
-  font-weight:400;cursor:pointer;
-  font-family:'Outfit',sans-serif;transition:all 0.2s;
-}
-.copy-btn:hover{border-color:rgba(26,37,64,0.4);color:var(--lime);}
-.copy-ok{font-size:0.75rem;color:var(--lime);display:none;font-family:'JetBrains Mono',monospace;}
-
 /* ── BOOKING ── */
 .booking-bg{
   background:var(--ink2);
@@ -766,56 +689,6 @@ h1{animation:fadeUp 0.7s 0.15s ease both;}
   </div>
 </section>
 
-<!-- SOCIAL CONTENT GENERATOR (admin only) -->
-<section class="gen-section" id="adminSection" style="display:none;">
-  <div class="inner">
-    <div class="eyebrow">Content Tool</div>
-    <h2>Social Media Generator</h2>
-    <p class="section-sub">Generate platform-ready posts on sports medicine topics — for Instagram, LinkedIn, or X. Powered by AI, written in your voice.</p>
-    <div class="gen-box">
-      <div class="gen-titlebar">
-        <div class="dot-r"></div>
-        <div class="dot-y"></div>
-        <div class="dot-g"></div>
-        <span class="gen-titlebar-label">kilpatrick-content-generator.app</span>
-      </div>
-      <div class="gen-body">
-        <div class="gen-sidebar">
-          <div class="gen-sidebar-label">Topic</div>
-          <div class="topic-list" id="topicList">
-            <button class="topic-pill on" onclick="setTopic(this,'concussion management in athletes')">Concussion</button>
-            <button class="topic-pill" onclick="setTopic(this,'return to sport after injury')">Return to Sport</button>
-            <button class="topic-pill" onclick="setTopic(this,'injury prevention in runners')">Runner Health</button>
-            <button class="topic-pill" onclick="setTopic(this,'sleep and athletic recovery')">Sleep & Recovery</button>
-            <button class="topic-pill" onclick="setTopic(this,'zone 2 cardio training science')">Zone 2 Training</button>
-            <button class="topic-pill" onclick="setTopic(this,'overuse injuries in youth athletes')">Youth Athletes</button>
-            <button class="topic-pill" onclick="setTopic(this,'sports nutrition and performance')">Sports Nutrition</button>
-            <button class="topic-pill" onclick="setTopic(this,'ACL injury prevention strategies')">ACL Prevention</button>
-            <button class="topic-pill" onclick="setTopic(this,'overtraining syndrome signs and recovery')">Overtraining</button>
-            <button class="topic-pill" onclick="setTopic(this,'pre-participation physical exam importance')">Pre-Participation Exam</button>
-          </div>
-        </div>
-        <div class="gen-main">
-          <div>
-            <div class="gen-sidebar-label" style="margin-bottom:0.6rem;">Platform</div>
-            <div class="plat-row">
-              <button class="plat-pill on" onclick="setPlat(this,'instagram')">Instagram</button>
-              <button class="plat-pill" onclick="setPlat(this,'linkedin')">LinkedIn</button>
-              <button class="plat-pill" onclick="setPlat(this,'twitter/X')">X / Twitter</button>
-            </div>
-          </div>
-          <div class="gen-output" id="genOutput">Choose a topic and platform, then click Generate to create a ready-to-post caption written from Dr. Kilpatrick's perspective — evidence-based and athlete-first.</div>
-          <div class="gen-controls">
-            <button class="gen-btn" id="genBtn" onclick="generate()">Generate Post</button>
-            <button class="copy-btn" onclick="copyPost()">Copy Text</button>
-            <span class="copy-ok" id="copyOk">Copied ✓</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- BOOKING -->
 <section id="booking" class="booking-bg">
   <div class="inner booking-inner">
@@ -897,20 +770,6 @@ h1{animation:fadeUp 0.7s 0.15s ease both;}
   }
 })();
 
-// ── Content generator state ───────────────────────────────────────────────
-let topic = 'concussion management in athletes';
-let platform = 'instagram';
-
-function setTopic(btn, t) {
-  document.querySelectorAll('.topic-pill').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
-  topic = t;
-}
-
-function setPlat(btn, p) {
-  document.querySelectorAll('.plat-pill').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
-  platform = p;
 }
 
 // ── Platform-specific instructions ───────────────────────────────────────
@@ -924,59 +783,6 @@ const platGuide = {
 async function generate() {
   const out = document.getElementById('genOutput');
   const btn = document.getElementById('genBtn');
-
-  // Show loading state
-  out.style.color = 'var(--muted)';
-  out.textContent = 'Generating content…';
-  btn.disabled = true;
-  btn.textContent = 'Generating…';
-
-  const prompt = `You are Dr. Piper Kilpatrick, MD, a primary care sports medicine physician and Chief Medical Officer of the NC Courage (NWSL). Write a social media post about: ${topic}. ${platGuide[platform]} Write in first person from a physician's perspective — evidence-based, athlete-centered, and conversational. No markdown formatting, no asterisks, no bold. Plain text only.`;
-
-  try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        messages: [{ role: 'user', content: prompt }]
-      })
-    });
-
-    if (!res.ok) {
-      throw new Error(`API error: ${res.status}`);
-    }
-
-    const data = await res.json();
-    const text = data.content?.map(c => c.text || '').join('') || 'Unable to generate content. Please try again.';
-    out.style.color = 'var(--cream-dim)';
-    out.textContent = text;
-
-  } catch(e) {
-    out.style.color = 'var(--coral)';
-    out.textContent = 'Connection error. Please try again in a moment.\n\nIf this persists, check that the page is being served correctly.';
-  } finally {
-    // Always re-enable the button whether it succeeded or failed
-    btn.disabled = false;
-    btn.textContent = 'Generate Post';
-  }
-}
-
-// ── Copy to clipboard ─────────────────────────────────────────────────────
-function copyPost() {
-  const text = document.getElementById('genOutput').textContent;
-  // Don't copy if it's still the placeholder or an error
-  if (!text || text.startsWith('Choose a topic') || text.startsWith('Connection error') || text.startsWith('Generating')) {
-    return;
-  }
-  navigator.clipboard.writeText(text).then(() => {
-    const ok = document.getElementById('copyOk');
-    ok.style.display = 'inline';
-    setTimeout(() => { ok.style.display = 'none'; }, 2500);
-  });
-}
-</script>
 
 </body>
 </html>
