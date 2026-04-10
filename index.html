@@ -13,18 +13,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --ink: #f0eeea;
-  --ink2: #e8e5e0;
-  --surface: #dedad4;
-  --surface2: #d0ccc5;
-  --lime: #1a1a1a;
-  --lime-dim: #333333;
-  --cream: #111111;
-  --cream-dim: #444444;
-  --muted: #888880;
-  --border: rgba(26,26,26,0.15);
-  --border2: rgba(26,26,26,0.1);
-  --coral: #555550;
+  /* Cool pale grey with blue undertones */
+  --ink: #eef0f4;
+  --ink2: #e4e7ed;
+  --surface: #d8dce6;
+  --surface2: #cdd2de;
+  --lime: #1a2540;
+  --lime-dim: #2e3f6b;
+  --cream: #0f1624;
+  --cream-dim: #3a4560;
+  --muted: #7a86a0;
+  --border: rgba(26,37,64,0.14);
+  --border2: rgba(26,37,64,0.09);
+  --coral: #6a5a5a;
+  --accent: #2c5282;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -42,7 +44,7 @@ nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   display:flex;align-items:center;justify-content:space-between;
   padding:1.1rem 3.5rem;
-  background:rgba(240,238,234,0.92);
+  background:rgba(238,240,244,0.92);
   backdrop-filter:blur(16px);
   border-bottom:1px solid var(--border2);
 }
@@ -61,7 +63,7 @@ nav{
 }
 .nav-links a:hover{color:var(--lime);}
 .nav-cta{
-  background:var(--lime);color:#f0eeea;
+  background:var(--lime);color:#eef0f4;
   padding:0.6rem 1.6rem;border-radius:100px;
   font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;
   font-weight:600;text-decoration:none;transition:all 0.2s;
@@ -81,7 +83,7 @@ nav{
   font-family:'Playfair Display',serif;
   font-size:clamp(8rem,18vw,18rem);
   font-weight:900;
-  color:rgba(26,26,26,0.05);
+  color:rgba(26,37,64,0.04);
   line-height:1;pointer-events:none;
   white-space:nowrap;letter-spacing:-0.03em;
   user-select:none;
@@ -89,7 +91,7 @@ nav{
 .hero-inner{max-width:1160px;margin:0 auto;width:100%;}
 .hero-tag{
   display:inline-flex;align-items:center;gap:0.6rem;
-  background:rgba(26,26,26,0.06);border:1px solid var(--border);
+  background:rgba(26,37,64,0.06);border:1px solid var(--border);
   border-radius:100px;padding:0.4rem 1rem 0.4rem 0.6rem;
   margin-bottom:2rem;
 }
@@ -98,8 +100,8 @@ nav{
   animation:pulse 2s infinite;
 }
 @keyframes pulse{
-  0%,100%{box-shadow:0 0 0 0 rgba(26,26,26,0.35);}
-  50%{box-shadow:0 0 0 6px rgba(26,26,26,0);}
+  0%,100%{box-shadow:0 0 0 0 rgba(26,37,64,0.35);}
+  50%{box-shadow:0 0 0 6px rgba(26,37,64,0);}
 }
 .hero-tag span{
   font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;
@@ -129,7 +131,7 @@ h1 em{
 }
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
 .btn-lime{
-  background:var(--lime);color:#f0eeea;
+  background:var(--lime);color:#eef0f4;
   padding:1rem 2.5rem;border-radius:100px;
   font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;
   font-weight:600;text-decoration:none;transition:all 0.25s;display:inline-block;
@@ -141,7 +143,7 @@ h1 em{
   font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;
   font-weight:400;text-decoration:none;transition:all 0.25s;display:inline-block;
 }
-.btn-ghost:hover{border-color:rgba(26,26,26,0.5);color:var(--lime);}
+.btn-ghost:hover{border-color:rgba(26,37,64,0.5);color:var(--lime);}
 .hero-stats{
   display:flex;gap:3rem;margin-top:2.5rem;
   padding-top:2rem;border-top:1px solid var(--border2);
@@ -214,7 +216,7 @@ h2{
 }
 .svc-featured{
   border-left:3px solid var(--lime) !important;
-  background:rgba(26,26,26,0.04);
+  background:rgba(26,37,64,0.04);
 }
 
 /* ── ABOUT ── */
@@ -244,14 +246,13 @@ h2{
   object-fit: cover;
   display: block;
 }
-}
 .photo-accent{
   position:absolute;bottom:-1.5rem;right:-1.5rem;
   width:80px;height:80px;border-radius:50%;
   background:var(--lime);
   display:flex;align-items:center;justify-content:center;
   font-family:'JetBrains Mono',monospace;font-size:0.6rem;
-  letter-spacing:0.08em;color:#f0eeea;font-weight:500;
+  letter-spacing:0.08em;color:#eef0f4;font-weight:500;
   text-align:center;line-height:1.5;z-index:2;
 }
 .photo-wrap{position:relative;padding-bottom:2rem;padding-right:2rem;}
@@ -283,7 +284,7 @@ h2{
   border-radius:10px;overflow:hidden;
   transition:border-color 0.25s,transform 0.25s;
 }
-.res-card:hover{border-color:rgba(26,26,26,0.3);transform:translateY(-4px);}
+.res-card:hover{border-color:rgba(26,37,64,0.3);transform:translateY(-4px);}
 .res-top{
   padding:1.75rem 1.75rem 1.25rem;
   border-bottom:1px solid var(--border2);
@@ -349,8 +350,8 @@ h2{
   font-family:'Outfit',sans-serif;transition:all 0.2s;
   text-align:left;
 }
-.topic-pill:hover{border-color:rgba(26,26,26,0.4);color:var(--cream);}
-.topic-pill.on{background:rgba(26,26,26,0.08);border-color:var(--lime);color:var(--lime);}
+.topic-pill:hover{border-color:rgba(26,37,64,0.4);color:var(--cream);}
+.topic-pill.on{background:rgba(26,37,64,0.08);border-color:var(--lime);color:var(--lime);}
 .gen-main{padding:1.5rem;display:flex;flex-direction:column;gap:1rem;}
 .plat-row{display:flex;gap:0.5rem;}
 .plat-pill{
@@ -359,8 +360,8 @@ h2{
   font-size:0.75rem;cursor:pointer;
   font-family:'Outfit',sans-serif;transition:all 0.2s;font-weight:500;
 }
-.plat-pill:hover{border-color:rgba(26,26,26,0.4);color:var(--cream);}
-.plat-pill.on{background:rgba(26,26,26,0.1);border-color:var(--lime);color:var(--lime);}
+.plat-pill:hover{border-color:rgba(26,37,64,0.4);color:var(--cream);}
+.plat-pill.on{background:rgba(26,37,64,0.1);border-color:var(--lime);color:var(--lime);}
 .gen-output{
   flex:1;background:var(--ink);border:1px solid var(--border2);
   border-radius:8px;padding:1.25rem;
@@ -370,13 +371,14 @@ h2{
 }
 .gen-controls{display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;}
 .gen-btn{
-  background:var(--lime);color:#f0eeea;border:none;
+  background:var(--lime);color:#eef0f4;border:none;
   padding:0.7rem 1.8rem;border-radius:100px;
   font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;
   font-weight:600;cursor:pointer;
   font-family:'Outfit',sans-serif;transition:all 0.2s;
 }
 .gen-btn:hover{background:var(--lime-dim);}
+.gen-btn:disabled{opacity:0.5;cursor:not-allowed;}
 .copy-btn{
   background:transparent;border:1px solid var(--border2);color:var(--muted);
   padding:0.7rem 1.4rem;border-radius:100px;
@@ -384,7 +386,7 @@ h2{
   font-weight:400;cursor:pointer;
   font-family:'Outfit',sans-serif;transition:all 0.2s;
 }
-.copy-btn:hover{border-color:rgba(26,26,26,0.4);color:var(--lime);}
+.copy-btn:hover{border-color:rgba(26,37,64,0.4);color:var(--lime);}
 .copy-ok{font-size:0.75rem;color:var(--lime);display:none;font-family:'JetBrains Mono',monospace;}
 
 /* ── BOOKING ── */
@@ -406,10 +408,10 @@ h2{
   border-radius:10px;padding:1.75rem 1.5rem;
   transition:border-color 0.2s,transform 0.2s;
 }
-.appt-card:hover{border-color:rgba(26,26,26,0.35);transform:translateY(-3px);}
+.appt-card:hover{border-color:rgba(26,37,64,0.35);transform:translateY(-3px);}
 .appt-icon{
   width:42px;height:42px;border-radius:8px;
-  background:rgba(26,26,26,0.07);border:1px solid var(--border);
+  background:rgba(26,37,64,0.07);border:1px solid var(--border);
   display:flex;align-items:center;justify-content:center;
   font-size:1.2rem;margin-bottom:1.1rem;
 }
@@ -425,7 +427,7 @@ h2{
 }
 .big-cta{
   display:inline-flex;align-items:center;gap:0.75rem;
-  background:var(--lime);color:#f0eeea;
+  background:var(--lime);color:#eef0f4;
   padding:1.15rem 3rem;border-radius:100px;
   font-size:0.88rem;letter-spacing:0.1em;text-transform:uppercase;
   font-weight:700;text-decoration:none;transition:all 0.25s;
@@ -500,6 +502,7 @@ h1{animation:fadeUp 0.7s 0.15s ease both;}
   .appt-grid{grid-template-columns:1fr;}
   .footer-inner{grid-template-columns:1fr 1fr;}
 }
+
 /* ── LEADERSHIP ── */
 .leadership-grid{
   display:grid;grid-template-columns:1fr 1fr;
@@ -511,9 +514,9 @@ h1{animation:fadeUp 0.7s 0.15s ease both;}
   border-radius:10px;padding:2rem;
   transition:border-color 0.25s;
 }
-.lead-card:hover{border-color:rgba(26,26,26,0.3);}
+.lead-card:hover{border-color:rgba(26,37,64,0.3);}
 .lead-featured{
-  border-color:rgba(26,26,26,0.2);
+  border-color:rgba(26,37,64,0.2);
   border-left:3px solid var(--lime);
 }
 .lead-card-top{
@@ -521,7 +524,7 @@ h1{animation:fadeUp 0.7s 0.15s ease both;}
   margin-bottom:1rem;
 }
 .lead-badge{
-  background:var(--lime);color:#f0eeea;
+  background:var(--lime);color:#eef0f4;
   font-family:'JetBrains Mono',monospace;
   font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;
   padding:0.35rem 0.8rem;border-radius:4px;font-weight:600;
@@ -581,8 +584,8 @@ h1{animation:fadeUp 0.7s 0.15s ease both;}
       <div class="hero-photo-col">
         <div class="photo-wrap">
           <div class="photo-frame">
-  <img src="piper-kilpatrick-md.jpg" alt="Dr. Piper Kilpatrick, MD">
-</div>
+            <img src="piper-kilpatrick-md.jpg" alt="Dr. Piper Kilpatrick, MD">
+          </div>
         </div>
       </div>
 
@@ -679,7 +682,7 @@ h1{animation:fadeUp 0.7s 0.15s ease both;}
           <div class="lead-org">NC Courage &nbsp;·&nbsp; NWSL</div>
         </div>
         <h3>Chief Medical Officer</h3>
-        <p>As CMO of the NC Courage, Dr. Kilpatrick oversees all medical operations for one of the National Women's Soccer League's premier clubs. His responsibilities span acute injury management, pre-season screening, concussion protocol oversight, travel medicine, and long-term athlete health strategy — all at the highest level of professional women's soccer.</p>
+        <p>As CMO of the NC Courage, Dr. Kilpatrick oversees all medical operations for one of the National Women's Soccer League's premier clubs. Her responsibilities span acute injury management, pre-season screening, concussion protocol oversight, travel medicine, and long-term athlete health strategy — all at the highest level of professional women's soccer.</p>
         <div class="lead-tags">
           <span class="ltag">Professional Sports</span>
           <span class="ltag">NWSL</span>
@@ -693,7 +696,7 @@ h1{animation:fadeUp 0.7s 0.15s ease both;}
             <div class="lead-badge lead-badge-sm">Specialty</div>
           </div>
           <h3>Sport Concussion Expert</h3>
-          <p>Dr. Kilpatrick is a recognized expert in sport concussion — from sideline evaluation and baseline neurocognitive testing to return-to-play protocol design and concussion education for athletes, coaches, and organizations. He brings a research-informed, athlete-centered approach to one of sport's most complex clinical challenges.</p>
+          <p>Dr. Kilpatrick is a recognized expert in sport concussion — from sideline evaluation and baseline neurocognitive testing to return-to-play protocol design and concussion education for athletes, coaches, and organizations. She brings a research-informed, athlete-centered approach to one of sport's most complex clinical challenges.</p>
           <div class="lead-tags">
             <span class="ltag">Concussion Protocol</span>
             <span class="ltag">Neuropsychological Testing</span>
@@ -706,7 +709,7 @@ h1{animation:fadeUp 0.7s 0.15s ease both;}
             <div class="lead-badge lead-badge-sm">Advisory</div>
           </div>
           <h3>Medical Advisory Boards & Consulting</h3>
-          <p>Dr. Kilpatrick serves on multiple medical advisory boards and provides consulting services to sports organizations, health systems, and industry partners. His advisory work focuses on sports medicine protocol development, concussion policy, and athlete health system design — translating frontline clinical experience into organizational strategy.</p>
+          <p>Dr. Kilpatrick serves on multiple medical advisory boards and provides consulting services to sports organizations, health systems, and industry partners. Her advisory work focuses on sports medicine protocol development, concussion policy, and athlete health system design — translating frontline clinical experience into organizational strategy.</p>
           <div class="lead-tags">
             <span class="ltag">Advisory Boards</span>
             <span class="ltag">Protocol Design</span>
@@ -801,9 +804,9 @@ h1{animation:fadeUp 0.7s 0.15s ease both;}
               <button class="plat-pill" onclick="setPlat(this,'twitter/X')">X / Twitter</button>
             </div>
           </div>
-          <div class="gen-output" id="genOutput">Choose a topic and platform on the left, then click Generate to create a ready-to-post caption written from Dr. Kilpatrick's perspective — evidence-based and athlete-first.</div>
+          <div class="gen-output" id="genOutput">Choose a topic and platform, then click Generate to create a ready-to-post caption written from Dr. Kilpatrick's perspective — evidence-based and athlete-first.</div>
           <div class="gen-controls">
-            <button class="gen-btn" onclick="generate()">Generate Post</button>
+            <button class="gen-btn" id="genBtn" onclick="generate()">Generate Post</button>
             <button class="copy-btn" onclick="copyPost()">Copy Text</button>
             <span class="copy-ok" id="copyOk">Copied ✓</span>
           </div>
@@ -872,7 +875,7 @@ h1{animation:fadeUp 0.7s 0.15s ease both;}
     </div>
     <div class="f-col">
       <h5>Practice</h5>
-      <a href="#">Carolina Family Practice & Sports Medcine</a>
+      <a href="#">Carolina Family Practice & Sports Medicine</a>
       <a href="#">1070 S. Main St. Suite 110</a>
       <a href="#">Holly Springs, NC 27540</a>
       <a href="#">All major insurances accepted</a>
@@ -884,7 +887,17 @@ h1{animation:fadeUp 0.7s 0.15s ease both;}
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+// ── Admin section visibility ──────────────────────────────────────────────
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  if(params.get('admin') === 'true'){
+    const sec = document.getElementById('adminSection');
+    if(sec) sec.style.display = 'block';
+  }
+})();
+
+// ── Content generator state ───────────────────────────────────────────────
 let topic = 'concussion management in athletes';
 let platform = 'instagram';
 
@@ -893,24 +906,32 @@ function setTopic(btn, t) {
   btn.classList.add('on');
   topic = t;
 }
+
 function setPlat(btn, p) {
   document.querySelectorAll('.plat-pill').forEach(b => b.classList.remove('on'));
   btn.classList.add('on');
   platform = p;
 }
 
+// ── Platform-specific instructions ───────────────────────────────────────
 const platGuide = {
   instagram: `Write a 160–230 word Instagram caption. Start with a bold hook — one short sentence that stops the scroll. Then write 3–5 practical, evidence-based bullet points using relevant sport emojis. End with a clear call-to-action (follow for more, link in bio, etc.). Add 8–10 targeted hashtags on a new line at the end.`,
   linkedin: `Write a 220–300 word LinkedIn post. Open with a compelling clinical observation or counterintuitive insight. Share 3–4 numbered practical takeaways for athletes or coaches. Close with an engaging question to spark comments. Use 3–5 relevant hashtags max. Tone: authoritative but approachable — a physician writing for a professional audience.`,
   'twitter/X': `Write a Twitter/X thread. Start with a punchy tweet under 280 characters marked [1/5]. Follow with 4 reply tweets ([2/5] through [5/5]), each under 280 characters, expanding on key evidence-based points. End with a call-to-action tweet. Mark each tweet clearly.`
 };
 
+// ── Main generate function ────────────────────────────────────────────────
 async function generate() {
   const out = document.getElementById('genOutput');
+  const btn = document.getElementById('genBtn');
+
+  // Show loading state
   out.style.color = 'var(--muted)';
   out.textContent = 'Generating content…';
+  btn.disabled = true;
+  btn.textContent = 'Generating…';
 
-  const prompt = `You are Dr. Piper Kilpatrick, MD, a primary care sports medicine physician. Write a social media post about: ${topic}. ${platGuide[platform]} Write in first person from a physician's perspective — evidence-based, athlete-centered, and conversational. No markdown formatting, no asterisks, no bold. Plain text only.`;
+  const prompt = `You are Dr. Piper Kilpatrick, MD, a primary care sports medicine physician and Chief Medical Officer of the NC Courage (NWSL). Write a social media post about: ${topic}. ${platGuide[platform]} Write in first person from a physician's perspective — evidence-based, athlete-centered, and conversational. No markdown formatting, no asterisks, no bold. Plain text only.`;
 
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
@@ -922,21 +943,40 @@ async function generate() {
         messages: [{ role: 'user', content: prompt }]
       })
     });
+
+    if (!res.ok) {
+      throw new Error(`API error: ${res.status}`);
+    }
+
     const data = await res.json();
-    const text = data.content?.map(c => c.text || '').join('') || 'Unable to generate. Please try again.';
+    const text = data.content?.map(c => c.text || '').join('') || 'Unable to generate content. Please try again.';
     out.style.color = 'var(--cream-dim)';
     out.textContent = text;
+
   } catch(e) {
     out.style.color = 'var(--coral)';
-    out.textContent = 'Connection error. Please try again in a moment.';
-  
-<script>
-// Admin-only content generator — visible only when URL includes ?admin=true
-(function(){
-  const params = new URLSearchParams(window.location.search);
-  if(params.get('admin') === 'true'){
-    const sec = document.getElementById('adminSection');
-    if(sec) sec.style.display = 'block';
+    out.textContent = 'Connection error. Please try again in a moment.\n\nIf this persists, check that the page is being served correctly.';
+  } finally {
+    // Always re-enable the button whether it succeeded or failed
+    btn.disabled = false;
+    btn.textContent = 'Generate Post';
   }
-})();
+}
+
+// ── Copy to clipboard ─────────────────────────────────────────────────────
+function copyPost() {
+  const text = document.getElementById('genOutput').textContent;
+  // Don't copy if it's still the placeholder or an error
+  if (!text || text.startsWith('Choose a topic') || text.startsWith('Connection error') || text.startsWith('Generating')) {
+    return;
+  }
+  navigator.clipboard.writeText(text).then(() => {
+    const ok = document.getElementById('copyOk');
+    ok.style.display = 'inline';
+    setTimeout(() => { ok.style.display = 'none'; }, 2500);
+  });
+}
 </script>
+
+</body>
+</html>
